@@ -1,0 +1,43 @@
+<!-- vim: set noet sts=2 ts=2 sw=2: -->
+<!DOCTYPE html>
+<head>
+	<style>
+		body {
+			max-width: 40rem;
+			width: 40rem;
+			margin: 0 auto;
+		}
+
+		nav {
+			padding-bottom: .5rem;
+			margin-bottom: 1rem;
+			border-bottom: 1px solid #ccc;
+		}
+
+		.quote {
+			margin-bottom: 1rem;
+			padding: 2rem;
+			border: 1px solid #ccc;
+			border-radius: .5rem;
+		}
+
+		.quote .text {
+			margin-bottom: .5rem;
+		}
+
+		.quote .author {
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<a href="upload/">Did someone just say something interesting?</a>
+	</nav>
+	{{ range $quote := .quotes }}
+		<div class="quote">
+			<div class="text">&ldquo;{{ $quote.Text }}&rdquo;</div>
+			<span class="author">&mdash; {{ $quote.Author }}</span>
+		</div>
+	{{ end }}
+</body>
