@@ -12,13 +12,13 @@ import (
 )
 
 type Quote struct {
-	Text string
+	Text   string
 	Author string
-	TS time.Time
+	TS     time.Time
 }
 
 type NewQuoteForm struct {
-	Quote string `form:"quote" bind:"required"`
+	Quote  string `form:"quote" bind:"required"`
 	Author string `form:"author" bind:"required"`
 }
 
@@ -68,7 +68,7 @@ func uploadPost(c *gin.Context) {
 	if err != nil {
 		log.Fatal(err)
 		c.String(http.StatusInternalServerError,
-						 "Something went wrong when saving to Mongo!")
+			"Something went wrong when saving to Mongo!")
 	}
 	c.Redirect(http.StatusMovedPermanently, "/")
 }
