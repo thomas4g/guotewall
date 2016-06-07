@@ -46,7 +46,7 @@ func quotesGet(c *gin.Context) {
 	conn := c.MustGet("dbConn").(*mgo.Database)
 
 	quotes := []Quote{}
-	err := conn.C("quotes").Find(nil).Sort("time").All(&quotes)
+	err := conn.C("quotes").Find(nil).Sort("-time").All(&quotes)
 	if err != nil {
 		log.Fatal(err)
 		c.String(http.StatusNotFound, err.Error())
